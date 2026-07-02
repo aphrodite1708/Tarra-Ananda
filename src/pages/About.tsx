@@ -10,8 +10,12 @@ export default function About() {
     <section className="about" id="about">
       <div className="container">
         <div className="about-inner">
-          <div>
-            <div className="section-eyebrow">About</div>
+
+          <div className="about-photo-col">
+            <div className="about-photo-frame">
+              <img src="/profile.jpg" alt="Tarra Ananda" className="about-photo" />
+              <div className="about-photo-accent" />
+            </div>
             <div className="about-quote">
               <div className="about-quote-mark">"</div>
               <p className="about-text">
@@ -23,6 +27,7 @@ export default function About() {
           </div>
 
           <div>
+            <div className="section-eyebrow">About</div>
             <p className="about-body">
               I work at the intersection of operations and creativity — stepping in as a trusted partner to founders who need more than task execution. Whether it's managing the moving pieces of a creator business, building community around a new product, or developing content that reaches millions, I bring clarity and momentum to complex challenges.
             </p>
@@ -39,6 +44,7 @@ export default function About() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ export default function Hero() {
             <em>Ananda.</em>
           </h1>
           <p className="hero-tagline">
-            Helping founders grow their business through strategy, operations, and creative execution.
+            4 years helping founders grow — through strategy, operations, and creative execution. 50+ brands. Multiple creators scaled.
           </p>
           <div className="hero-actions">
             <button className="btn-red" onClick={() => navigate('case-studies')}>

@@ -173,21 +173,25 @@ export const creativeStudies: CaseStudy[] = [
   {
     id: 'influencer-growth',
     number: '01',
-    title: 'Growing an Influencer by 100,000+ Followers',
-    role: 'Creative Strategist',
-    overview: 'Partnered with an influencer to develop a long-term content strategy focused on sustainable audience growth and stronger brand positioning.',
+    title: 'Growing Multiple Influencers — 100,000+ Followers & 50+ Brand Deals',
+    role: 'Creative Strategist · 4 Years Experience',
+    overview: 'Over 4 years, I've worked with multiple influencers and content creators across niches — developing content strategies that drove real audience growth, facilitated creator-to-creator collaborations, and secured partnerships with over 50 brands. My role spanned strategy, creative direction, and end-to-end campaign execution.',
     sections: [
       {
         heading: 'My Thinking',
-        content: ['Instead of asking "What should we post?" I asked "What does this audience consistently come back for?" After researching audience behaviors and analyzing high-performing content, I identified recurring themes and built a content strategy around those insights.'],
+        content: ['Instead of asking "What should we post?" I asked "What does this audience consistently come back for?" After researching audience behaviors and analyzing high-performing content, I identified recurring themes and built content strategies around those insights — for each creator, not just one.'],
       },
       {
         heading: 'What I Did',
-        content: ['Audience Research', 'Competitor Analysis', 'Content Strategy', 'Content Calendar', 'Creative Direction', 'Scriptwriting', 'Performance Review', 'Trend Research'],
+        content: ['Audience Research', 'Competitor Analysis', 'Content Strategy', 'Content Calendar', 'Creative Direction', 'Scriptwriting', 'Performance Review', 'Trend Research', 'Creator × Creator Collabs', 'Brand Partnership Management', 'Campaign Execution', 'Brief Writing'],
+      },
+      {
+        heading: 'Brand & Creator Partnerships',
+        content: ['Managed and facilitated partnerships with 50+ brands across lifestyle, fashion, beauty, and tech. Coordinated creator collaborations that expanded reach and introduced audiences to new voices — always with authentic storytelling at the centre.'],
       },
     ],
-    impact: '📈 100,000+ followers gained · 📈 Increased engagement · 📈 Stronger brand positioning',
-    tags: ['Content Strategy', 'Growth', 'Scriptwriting'],
+    impact: '📈 100,000+ followers gained across multiple creators · 🤝 50+ brand partnerships managed · 📈 Increased engagement & stronger brand positioning',
+    tags: ['Content Strategy', 'Growth', 'Brand Partnerships', '50+ Brands'],
     media: [
       { type: 'image', src: '/followers-growth-1.jpg', alt: 'Followers growth screenshot 1' },
       { type: 'image', src: '/followers-growth-2.jpg', alt: 'Followers growth screenshot 2' },

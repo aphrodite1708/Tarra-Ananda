@@ -29,10 +29,10 @@ export default function About() {
           <div>
             <div className="section-eyebrow">About</div>
             <p className="about-body">
-              I work at the intersection of operations and creativity — stepping in as a trusted partner to founders who need more than task execution. Whether it's managing the moving pieces of a creator business, building community around a new product, or developing content that reaches millions, I bring clarity and momentum to complex challenges.
+              With 4 years of experience across both Founder Associate and Creative Strategy roles, I work at the intersection of operations and creativity — stepping in as a trusted partner to founders who need more than task execution. Whether it's managing the moving pieces of a creator business, building community around a new product, or developing content that reaches millions, I bring clarity and momentum to complex challenges.
             </p>
             <p className="about-body">
-              With experience across hospitality, real estate, recruitment, e-commerce, and AI startups, I adapt quickly and think strategically — always focused on outcomes, not just outputs.
+              I've helped multiple influencers grow their audiences, managed partnerships with 50+ brands, and worked across industries including hospitality, real estate, recruitment, e-commerce, and AI startups — always focused on outcomes, not just outputs.
             </p>
             <div className="about-pillars">
               {PILLARS.map((p) => (

@@ -54,6 +54,17 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
               </div>
             ))}
           </div>
+          {study.media && study.media.length > 0 && (
+            <div className="cs-media">
+              {study.media.map((m, i) =>
+                m.type === 'image' ? (
+                  <img key={i} src={m.src} alt={m.alt ?? ''} className="cs-media-img" />
+                ) : (
+                  <video key={i} src={m.src} className="cs-media-video" controls playsInline />
+                )
+              )}
+            </div>
+          )}
           <div className="cs-impact">{study.impact}</div>
         </div>
       </div>

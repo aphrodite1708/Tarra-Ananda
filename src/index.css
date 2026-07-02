@@ -170,16 +170,19 @@ button { cursor: pointer; font-family: inherit; }
 .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; }
 
 .nav-link {
-  padding: 0.4rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  transition: color 0.15s;
+  color: var(--white);
+  background: none;
+  border: 1.5px solid rgba(200,16,46,0.4);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
 }
-.nav-link:hover { color: var(--white); }
-.nav-link.active { color: var(--red); }
+.nav-link:hover { background: rgba(200,16,46,0.15); border-color: var(--red); }
+.nav-link.active { background: var(--red); border-color: var(--red); color: var(--white); }
 
 .nav-cta {
   padding: 0.45rem 1.1rem;
@@ -217,7 +220,7 @@ button { cursor: pointer; font-family: inherit; }
   z-index: 99;
 }
 .nav-mobile.is-open { display: flex; }
-.nav-mobile .nav-link { font-size: 0.85rem; padding: 0.6rem 0; color: rgba(255,255,255,0.6); }
+.nav-mobile .nav-link { font-size: 0.85rem; padding: 0.6rem 1rem; color: var(--white); border-color: rgba(200,16,46,0.3); }
 
 /* ── Hero ────────────────────────────────────────────────────── */
 .hero {
@@ -691,6 +694,29 @@ button { cursor: pointer; font-family: inherit; }
 .cs-sec-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
 .cs-sec-list li { font-size: 0.86rem; color: var(--text-dim); padding-left: 1rem; position: relative; }
 .cs-sec-list li::before { content: '◆'; position: absolute; left: 0; color: var(--red); font-size: 0.32rem; top: 0.56em; }
+
+/* Case study media */
+.cs-media {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.cs-media-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  display: block;
+}
+.cs-media-video {
+  width: 100%;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid var(--border);
+  display: block;
+}
 
 .cs-impact {
   background: linear-gradient(135deg, rgba(200,16,46,0.06), rgba(200,16,46,0.02));

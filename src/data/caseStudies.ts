@@ -3,6 +3,12 @@ export interface BulletGroup {
   items: string[]
 }
 
+export interface CaseStudyMedia {
+  type: 'image' | 'video'
+  src: string
+  alt?: string
+}
+
 export interface CaseStudy {
   id: string
   number: string
@@ -12,6 +18,7 @@ export interface CaseStudy {
   sections: { heading: string; content: string | string[] | BulletGroup[] }[]
   impact: string
   tags: string[]
+  media?: CaseStudyMedia[]
 }
 
 export const founderStudies: CaseStudy[] = [
@@ -180,11 +187,15 @@ export const creativeStudies: CaseStudy[] = [
     ],
     impact: '📈 100,000+ followers gained · 📈 Increased engagement · 📈 Stronger brand positioning',
     tags: ['Content Strategy', 'Growth', 'Scriptwriting'],
+    media: [
+      { type: 'image', src: '/followers-growth-1.jpg', alt: 'Followers growth screenshot 1' },
+      { type: 'image', src: '/followers-growth-2.jpg', alt: 'Followers growth screenshot 2' },
+    ],
   },
   {
-    id: '32-million-views',
+    id: '37-million-views',
     number: '02',
-    title: 'Creating Content That Reached 32 Million Views',
+    title: 'Creating Content That Reached 37 Million Views',
     role: 'Creative Strategist',
     overview: 'Capture attention in highly saturated social feeds while creating content audiences genuinely wanted to watch and share.',
     sections: [
@@ -197,8 +208,11 @@ export const creativeStudies: CaseStudy[] = [
         content: ['Hook Development', 'Storytelling', 'Scriptwriting', 'Creative Direction', 'Trend Analysis', 'Performance Review'],
       },
     ],
-    impact: '📈 32M+ Views · 📈 Increased reach · 📈 High engagement',
+    impact: '📈 37M+ Views · 📈 Increased reach · 📈 High engagement',
     tags: ['Viral Content', 'Hooks', 'Creative Direction'],
+    media: [
+      { type: 'image', src: '/viral-content.jpg', alt: 'Viral content screenshot' },
+    ],
   },
   {
     id: 'ai-startup-community',
@@ -218,6 +232,9 @@ export const creativeStudies: CaseStudy[] = [
     ],
     impact: '✔ Built an engaged community · ✔ Generated authentic UGC · ✔ Increased product awareness · ✔ Created ongoing content opportunities',
     tags: ['Community', 'AI Startup', 'UGC'],
+    media: [
+      { type: 'image', src: '/community.jpg', alt: 'AI startup community event' },
+    ],
   },
   {
     id: 'brand-partnerships',
@@ -233,6 +250,10 @@ export const creativeStudies: CaseStudy[] = [
     ],
     impact: 'Successful end-to-end campaign delivery across multiple brand and creator partnerships.',
     tags: ['Partnerships', 'Creator Economy', 'Campaigns'],
+    media: [
+      { type: 'video', src: '/ugc-1.mp4', alt: 'UGC campaign 1' },
+      { type: 'video', src: '/ugc-2.mp4', alt: 'UGC campaign 2' },
+    ],
   },
 ]
 

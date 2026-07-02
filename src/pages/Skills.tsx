@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { useReveal } from '../hooks/useReveal'
 
 const FOUNDER_SKILLS = [
   { icon: '📅', title: 'Executive Operations', items: ['Calendar & email management', 'Travel coordination', 'Visa & passport documentation', 'Legal & government paperwork', 'Meeting & interview scheduling'] },
@@ -49,9 +50,15 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 
 export default function Skills() {
   const [tab, setTab] = useState<Tab>('founder')
+  const sectionRef = useReveal()
 
   return (
-    <section className="skills" id="skills">
+    <section
+      className="skills"
+      id="skills"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      data-reveal="from-right"
+    >
       <div className="container">
         <div className="skills-header">
           <div className="section-eyebrow" style={{ color: 'rgba(200,16,46,0.8)' }}>Skills</div>

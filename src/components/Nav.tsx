@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { triggerWipe } from './PageWipe'
 
 const LINKS = [
   { label: 'About', href: '#about' },
@@ -19,15 +20,17 @@ export default function Nav() {
 
   const handleNav = (href: string) => {
     setOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    triggerWipe(() => {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'instant' })
+    })
   }
 
   return (
     <>
       <nav className="nav" style={{ boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.4)' : 'none' }}>
         <div className="nav-inner">
-          <a className="nav-logo" href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
+          <a className="nav-logo" href="#" onClick={(e) => { e.preventDefault(); triggerWipe(() => window.scrollTo({ top: 0, behavior: 'instant' })) }}>
             Tarra <span>Ananda</span>
           </a>
           <ul className="nav-links">

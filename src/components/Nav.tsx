@@ -1,50 +1,41 @@
-import { useState, useEffect } from 'react'
-import { triggerWipe } from './PageWipe'
+import { useState } from 'react'
+import { useNav, type Page } from '../context/nav'
 
-const LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Contact', href: '#contact' },
+const LINKS: { label: string; page: Page }[] = [
+  { label: 'About', page: 'about' },
+  { label: 'Skills', page: 'skills' },
+  { label: 'Case Studies', page: 'case-studies' },
+  { label: 'Contact', page: 'contact' },
 ]
 
-export default function Nav() {
+export default function Nav({ current }: { current: Page }) {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const navigate = useNav()
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const handleNav = (href: string) => {
-    setOpen(false)
-    triggerWipe(() => {
-      const el = document.querySelector(href)
-      if (el) el.scrollIntoView({ behavior: 'instant' })
-    })
-  }
+  const go = (page: Page) => { setOpen(false); navigate(page) }
 
   return (
     <>
-      <nav className="nav" style={{ boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.4)' : 'none' }}>
+      <nav className="nav">
         <div className="nav-inner">
-          <a className="nav-logo" href="#" onClick={(e) => { e.preventDefault(); triggerWipe(() => window.scrollTo({ top: 0, behavior: 'instant' })) }}>
+          <button className="nav-logo" onClick={() => go('home')}>
             Tarra <span>Ananda</span>
-          </a>
+          </button>
           <ul className="nav-links">
-            {LINKS.map((l) => (
+            {LINKS.map(l => (
               <li key={l.label}>
-                <a className="nav-link" href={l.href} onClick={(e) => { e.preventDefault(); handleNav(l.href) }}>
+                <button
+                  className={`nav-link${current === l.page ? ' active' : ''}`}
+                  onClick={() => go(l.page)}
+                >
                   {l.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
-          <a className="nav-cta" href="#contact" onClick={(e) => { e.preventDefault(); handleNav('#contact') }}>
+          <button className="nav-cta" onClick={() => go('contact')}>
             Work with me
-          </a>
+          </button>
           <button className="nav-hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
             <span />
             <span />
@@ -53,14 +44,14 @@ export default function Nav() {
         </div>
       </nav>
       <div className={`nav-mobile${open ? ' is-open' : ''}`}>
-        {LINKS.map((l) => (
-          <a key={l.label} className="nav-link" href={l.href} onClick={(e) => { e.preventDefault(); handleNav(l.href) }}>
+        {LINKS.map(l => (
+          <button key={l.label} className="nav-link" onClick={() => go(l.page)}>
             {l.label}
-          </a>
+          </button>
         ))}
-        <a className="nav-link" style={{ color: 'var(--red)' }} href="#contact" onClick={(e) => { e.preventDefault(); handleNav('#contact') }}>
+        <button className="nav-link" style={{ color: 'var(--red)' }} onClick={() => go('contact')}>
           Work with me →
-        </a>
+        </button>
       </div>
     </>
   )

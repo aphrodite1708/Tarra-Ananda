@@ -1,20 +1,17 @@
 import { lazy, Suspense } from 'react'
 import { useTilt } from '../hooks/useTilt'
+import { useNav } from '../context/nav'
 
 const HeroCanvas = lazy(() => import('../components/HeroCanvas'))
 
 export default function Hero() {
   const emblemRef = useTilt(8)
-
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const navigate = useNav()
 
   return (
     <section className="hero" id="home">
       <Suspense fallback={null}><HeroCanvas /></Suspense>
       <div className="hero-glow" />
-
       <div className="hero-inner">
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div className="hero-eyebrow">Founder Associate · Creative Strategy</div>
@@ -26,10 +23,10 @@ export default function Hero() {
             Helping founders grow their business through strategy, operations, and creative execution.
           </p>
           <div className="hero-actions">
-            <button className="btn-red" onClick={() => scrollTo('#case-studies')}>
+            <button className="btn-red" onClick={() => navigate('case-studies')}>
               View Case Studies →
             </button>
-            <button className="btn-outline" onClick={() => scrollTo('#contact')}>
+            <button className="btn-outline" onClick={() => navigate('contact')}>
               Get in Touch
             </button>
           </div>
@@ -43,11 +40,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="hero-scroll">
-        <span>Scroll</span>
-        <span>↓</span>
       </div>
     </section>
   )

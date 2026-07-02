@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { founderStudies, creativeStudies, personalStudies, type CaseStudy } from '../data/caseStudies'
-import { useReveal } from '../hooks/useReveal'
 
 type Category = 'founder' | 'creative' | 'personal'
 
@@ -64,18 +63,12 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
 
 export default function CaseStudies() {
   const [category, setCategory] = useState<Category>('founder')
-  const sectionRef = useReveal()
 
   return (
-    <section
-      className="case-studies"
-      id="case-studies"
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      data-reveal="from-bottom"
-    >
+    <section className="case-studies" id="case-studies">
       <div className="container">
-        <div className="section-eyebrow" data-stagger="1">Case Studies</div>
-        <h2 className="section-title" data-stagger="2">The Work</h2>
+        <div className="section-eyebrow">Case Studies</div>
+        <h2 className="section-title">The Work</h2>
 
         <div className="cs-tabs">
           <button className={`cs-tab${category === 'founder' ? ' active' : ''}`} onClick={() => setCategory('founder')}>

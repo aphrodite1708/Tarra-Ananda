@@ -1,5 +1,3 @@
-import { useReveal } from '../hooks/useReveal'
-
 const LINKS = [
   { icon: '💼', label: 'LinkedIn', value: 'tarra-ananda777', href: 'https://www.linkedin.com/in/tarra-ananda777/' },
   { icon: '✈️', label: 'Telegram', value: '@aphroditestea', href: 'https://t.me/aphroditestea' },
@@ -8,15 +6,8 @@ const LINKS = [
 ]
 
 export default function Contact() {
-  const sectionRef = useReveal()
-
   return (
-    <section
-      className="contact"
-      id="contact"
-      ref={sectionRef as React.RefObject<HTMLElement>}
-      data-reveal="from-top"
-    >
+    <section className="contact" id="contact">
       <div className="contact-dots" />
       <div className="container">
         <div className="contact-inner">

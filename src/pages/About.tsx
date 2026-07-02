@@ -1,8 +1,8 @@
 const PILLARS = [
-  { icon: '🎯', title: 'Strategy', desc: 'Turning founder vision into clear, executable roadmaps.' },
-  { icon: '⚙️', title: 'Operations', desc: 'Building systems that let founders focus on what matters most.' },
-  { icon: '✍️', title: 'Creative', desc: 'Crafting content and campaigns that capture attention and drive action.' },
-  { icon: '🤝', title: 'Partnerships', desc: 'Managing relationships that generate real business outcomes.' },
+  { title: 'Strategy', desc: 'Turning founder vision into clear, executable roadmaps.' },
+  { title: 'Operations', desc: 'Building systems that let founders focus on what matters most.' },
+  { title: 'Creative', desc: 'Crafting content and campaigns that capture attention and drive action.' },
+  { title: 'Partnerships', desc: 'Managing relationships that generate real business outcomes.' },
 ]
 
 export default function About() {
@@ -37,7 +37,6 @@ export default function About() {
             <div className="about-pillars">
               {PILLARS.map((p) => (
                 <div className="about-pillar" key={p.title}>
-                  <div className="about-pillar-icon">{p.icon}</div>
                   <h4>{p.title}</h4>
                   <p>{p.desc}</p>
                 </div>

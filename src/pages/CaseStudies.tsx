@@ -56,6 +56,20 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
               </div>
             ))}
           </div>
+          {study.workflow && study.workflow.length > 0 && (
+            <div className="cs-workflow">
+              <div className="cs-sec-title" style={{ marginBottom: '1rem' }}>Production Workflow</div>
+              <div className="cs-workflow-steps">
+                {study.workflow.map((step, i) => (
+                  <div key={step} className="cs-workflow-step">
+                    <div className="cs-workflow-num">{String(i + 1).padStart(2, '0')}</div>
+                    <div className="cs-workflow-label">{step}</div>
+                    {i < study.workflow!.length - 1 && <div className="cs-workflow-arrow">↓</div>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           {study.media && study.media.length > 0 && (
             <div className="cs-media">
               {study.media.map((m, i) =>

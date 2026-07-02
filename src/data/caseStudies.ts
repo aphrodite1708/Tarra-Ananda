@@ -19,6 +19,7 @@ export interface CaseStudy {
   impact: string
   tags: string[]
   media?: CaseStudyMedia[]
+  workflow?: string[]
 }
 
 export const founderStudies: CaseStudy[] = [
@@ -253,6 +254,51 @@ export const creativeStudies: CaseStudy[] = [
     media: [
       { type: 'video', src: '/ugc-1.mp4', alt: 'UGC campaign 1' },
       { type: 'video', src: '/ugc-2.mp4', alt: 'UGC campaign 2' },
+    ],
+  },
+  {
+    id: 'ai-creative-production',
+    number: '05',
+    title: 'Scaling Creative Production with AI',
+    role: 'AI Creative Strategist | AI Content Production | Prompt Engineering',
+    overview: 'Developed end-to-end AI-generated creative assets for marketing agencies, helping accelerate content production while maintaining quality and brand consistency. My work combined strategic prompting, visual generation, editing, and creative direction to produce commercial-ready content for advertising and social media.',
+    sections: [
+      {
+        heading: 'The Challenge',
+        content: 'Traditional content production can be time-consuming and resource-intensive, particularly when creating multiple concepts, product visuals, or ad variations. The goal was to leverage AI not simply to generate images or videos, but to build an efficient workflow that reduced production time while still delivering polished, on-brand creative assets.',
+      },
+      {
+        heading: 'My Approach',
+        content: 'Rather than treating AI as a replacement for creativity, I used it as a creative accelerator. Every project followed a structured workflow: Strategy → Prompt Engineering → Asset Generation → Creative Production → Editing & Post Production.',
+      },
+      {
+        heading: 'Prompt Engineering',
+        content: ['Image prompting', 'Video prompting', 'Style consistency', 'Character consistency', 'Lighting and composition', 'Product positioning'],
+      },
+      {
+        heading: 'Asset Generation',
+        content: ['Product images', 'Lifestyle imagery', 'Product demonstrations', 'Marketing visuals', 'Social media content', 'Advertising creatives'],
+      },
+      {
+        heading: 'Creative Production & Deliverables',
+        content: ['PDP (Product Detail Page) visuals', 'Meta, TikTok & Instagram ads', 'UGC-style creatives', 'Instagram Reels, TikTok videos & Shorts', 'AI-generated scenes, products & environments', 'Motion graphics & final edited videos'],
+      },
+      {
+        heading: 'Editing & Post Production',
+        content: ['Color correction', 'Motion editing', 'Sound design', 'Text animation', 'Platform optimization', 'Final exports'],
+      },
+      {
+        heading: 'Skills Demonstrated',
+        content: ['AI Strategy', 'Prompt Engineering', 'Image & Video Prompt Engineering', 'Creative Direction', 'Storyboarding', 'Brand Consistency', 'Video Editing', 'Motion Graphics', 'PDP Optimization', 'Paid Advertising', 'Social Media Content', 'Creative Workflow'],
+      },
+    ],
+    impact: '✔ Accelerated creative production timelines · ✔ Produced commercial-ready assets using AI · ✔ Enabled faster creative testing and iteration · ✔ Reduced reliance on traditional production resources',
+    tags: ['AI Production', 'Prompt Engineering', 'Creative Automation'],
+    workflow: ['Campaign Brief', 'Audience Research', 'Creative Strategy', 'Prompt Engineering', 'AI Image Generation', 'AI Video Generation', 'Video Editing', 'Platform Optimization', 'Final Delivery'],
+    media: [
+      { type: 'video', src: '/watch.mp4', alt: 'AI Watch campaign' },
+      { type: 'video', src: '/nike-air.mp4', alt: 'AI Nike Air campaign' },
+      { type: 'video', src: '/jewelry.mp4', alt: 'AI Jewelry campaign' },
     ],
   },
 ]

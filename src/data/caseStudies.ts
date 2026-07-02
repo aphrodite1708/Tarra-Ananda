@@ -175,7 +175,7 @@ export const creativeStudies: CaseStudy[] = [
     number: '01',
     title: 'Growing Multiple Influencers — 100,000+ Followers & 50+ Brand Deals',
     role: 'Creative Strategist · 4 Years Experience',
-    overview: 'Over 4 years, I've worked with multiple influencers and content creators across niches — developing content strategies that drove real audience growth, facilitated creator-to-creator collaborations, and secured partnerships with over 50 brands. My role spanned strategy, creative direction, and end-to-end campaign execution.',
+    overview: "Over 4 years, I've worked with multiple influencers and content creators across niches — developing content strategies that drove real audience growth, facilitated creator-to-creator collaborations, and secured partnerships with over 50 brands. My role spanned strategy, creative direction, and end-to-end campaign execution.",
     sections: [
       {
         heading: 'My Thinking',

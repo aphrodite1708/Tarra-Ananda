@@ -1,8 +1,8 @@
 const LINKS = [
-  { icon: '💼', label: 'LinkedIn', value: 'tarra-ananda777', href: 'https://www.linkedin.com/in/tarra-ananda777/' },
-  { icon: '✈️', label: 'Telegram', value: '@aphroditestea', href: 'https://t.me/aphroditestea' },
-  { icon: '📧', label: 'Email', value: 'tarranandava@gmail.com', href: 'mailto:tarranandava@gmail.com' },
-  { icon: '📱', label: 'WhatsApp', value: '+62 812-8630-2213', href: 'https://wa.me/6281286302213' },
+  { label: 'LinkedIn', value: 'tarra-ananda777', href: 'https://www.linkedin.com/in/tarra-ananda777/' },
+  { label: 'Telegram', value: '@aphroditestea', href: 'https://t.me/aphroditestea' },
+  { label: 'Email', value: 'tarranandava@gmail.com', href: 'mailto:tarranandava@gmail.com' },
+  { label: 'WhatsApp', value: '+62 812-8630-2213', href: 'https://wa.me/6281286302213' },
 ]
 
 export default function Contact() {
@@ -12,21 +12,20 @@ export default function Contact() {
       <div className="container">
         <div className="contact-inner">
           <div>
-            <div className="section-eyebrow" style={{ color: 'rgba(200,16,46,0.8)' }} data-stagger="1">Contact</div>
-            <h2 className="section-title section-title-light" data-stagger="2">Let's Work Together</h2>
-            <p className="contact-sub" data-stagger="3">
+            <div className="section-eyebrow" style={{ color: 'rgba(200,16,46,0.8)' }}>Contact</div>
+            <h2 className="section-title section-title-light">Let's Work Together</h2>
+            <p className="contact-sub">
               Whether you're a founder looking for a right-hand operator, a brand building its creative strategy, or you just want to connect — reach out. I'm always open to conversations about meaningful work.
             </p>
-            <div className="contact-note" data-stagger="4">
+            <div className="contact-note">
               <h3>Open to new opportunities</h3>
               <p>Founder Associate roles, Creative Strategy projects, brand partnerships, and consulting engagements.</p>
             </div>
           </div>
 
           <div className="contact-links">
-            {LINKS.map((l, i) => (
-              <a key={l.label} className="contact-item" href={l.href} target="_blank" rel="noopener noreferrer" data-stagger={i + 5}>
-                <div className="contact-item-icon">{l.icon}</div>
+            {LINKS.map((l) => (
+              <a key={l.label} className="contact-item" href={l.href} target="_blank" rel="noopener noreferrer">
                 <div className="contact-item-body">
                   <div className="contact-item-label">{l.label}</div>
                   <div className="contact-item-value">{l.value}</div>

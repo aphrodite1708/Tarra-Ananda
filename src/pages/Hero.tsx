@@ -1,15 +1,22 @@
+import { lazy, Suspense } from 'react'
+import { useTilt } from '../hooks/useTilt'
+
+const HeroCanvas = lazy(() => import('../components/HeroCanvas'))
+
 export default function Hero() {
+  const emblemRef = useTilt(8)
+
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <section className="hero" id="home">
-      <div className="hero-dots" />
+      <Suspense fallback={null}><HeroCanvas /></Suspense>
       <div className="hero-glow" />
 
       <div className="hero-inner">
-        <div>
+        <div style={{ position: 'relative', zIndex: 1 }}>
           <div className="hero-eyebrow">Founder Associate · Creative Strategy</div>
           <h1 className="hero-name">
             Tarra
@@ -28,8 +35,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-right">
-          <div className="hero-emblem">
+        <div className="hero-right" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="hero-emblem" ref={emblemRef} style={{ transition: 'transform 0.15s ease-out' }}>
             <div className="hero-emblem-inner">
               <div className="hero-initial">TA</div>
               <div className="hero-initial-sub">◆ Portfolio 2025 ◆</div>

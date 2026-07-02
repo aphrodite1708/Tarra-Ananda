@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const FOUNDER_SKILLS = [
   { icon: '📅', title: 'Executive Operations', items: ['Calendar & email management', 'Travel coordination', 'Visa & passport documentation', 'Legal & government paperwork', 'Meeting & interview scheduling'] },
@@ -22,6 +22,31 @@ const CREATIVE_SKILLS = [
 
 type Tab = 'founder' | 'creative'
 
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect()
+      const dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2)
+      const dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2)
+      el.style.transform = `perspective(500px) rotateY(${dx * 10}deg) rotateX(${-dy * 6}deg) translateZ(10px)`
+    }
+    const onLeave = () => { el.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg) translateZ(0)' }
+    el.addEventListener('mousemove', onMove)
+    el.addEventListener('mouseleave', onLeave)
+    return () => { el.removeEventListener('mousemove', onMove); el.removeEventListener('mouseleave', onLeave) }
+  }, [])
+
+  return (
+    <div ref={ref} className="skill-card" style={{ transition: 'transform 0.15s ease-out', willChange: 'transform' }}>
+      {children}
+    </div>
+  )
+}
+
 export default function Skills() {
   const [tab, setTab] = useState<Tab>('founder')
 
@@ -44,13 +69,13 @@ export default function Skills() {
 
         <div className="skills-grid">
           {(tab === 'founder' ? FOUNDER_SKILLS : CREATIVE_SKILLS).map((s) => (
-            <div className="skill-card" key={s.title}>
+            <TiltCard key={s.title}>
               <div className="skill-card-icon">{s.icon}</div>
               <h3>{s.title}</h3>
               <ul>
                 {s.items.map((i) => <li key={i}>{i}</li>)}
               </ul>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

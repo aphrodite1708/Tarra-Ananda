@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { founderStudies, creativeStudies, personalStudies, type CaseStudy } from '../data/caseStudies'
+import Lightbox from '../components/Lightbox'
 
 type Category = 'founder' | 'creative' | 'personal'
 
@@ -21,6 +22,7 @@ const TOOLKIT = [
 
 function CaseStudyCard({ study }: { study: CaseStudy }) {
   const [open, setOpen] = useState(false)
+  const [lightbox, setLightbox] = useState<{ src: string; type: 'image' | 'video'; alt?: string } | null>(null)
 
   return (
     <div className={`cs-card${open ? ' is-open' : ''}`}>
@@ -58,9 +60,15 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
             <div className="cs-media">
               {study.media.map((m, i) =>
                 m.type === 'image' ? (
-                  <img key={i} src={m.src} alt={m.alt ?? ''} className="cs-media-img" />
+                  <button key={i} className="cs-media-btn" onClick={() => setLightbox(m)} title="View full image">
+                    <img src={m.src} alt={m.alt ?? ''} className="cs-media-img" />
+                    <div className="cs-media-zoom">⤢ View full</div>
+                  </button>
                 ) : (
-                  <video key={i} src={m.src} className="cs-media-video" controls playsInline />
+                  <button key={i} className="cs-media-btn" onClick={() => setLightbox(m)} title="Watch video">
+                    <video src={m.src} className="cs-media-video" playsInline muted />
+                    <div className="cs-media-zoom">▶ Play video</div>
+                  </button>
                 )
               )}
             </div>
@@ -68,6 +76,9 @@ function CaseStudyCard({ study }: { study: CaseStudy }) {
           <div className="cs-impact">{study.impact}</div>
         </div>
       </div>
+      {lightbox && (
+        <Lightbox src={lightbox.src} type={lightbox.type} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </div>
   )
 }

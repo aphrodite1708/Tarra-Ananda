@@ -70,7 +70,6 @@ export default function Skills() {
         <div className="skills-grid">
           {(tab === 'founder' ? FOUNDER_SKILLS : CREATIVE_SKILLS).map((s) => (
             <TiltCard key={s.title}>
-              <div className="skill-card-icon">{s.icon}</div>
               <h3>{s.title}</h3>
               <ul>
                 {s.items.map((i) => <li key={i}>{i}</li>)}
